@@ -1,6 +1,6 @@
 import Skills from "./Skills";
 import { Container, Row, Col, Carousel, Button } from "react-bootstrap";
-import colorSharp from "../assets/img/color-sharp.png";
+import colorSharp from "../assets/img/gradient.png";
 
 const Certificates = () => {
   const certi = [
@@ -9,7 +9,7 @@ const Certificates = () => {
       certiLink: "https://drive.google.com/file/d/15-b4iQVIXaO7M9yuIMJRDm9DGp8rkExC/view?usp=sharing",
     },
     {
-      title: "Bits and Bytes of Computer Networking - Coursera",
+      title: "The Bits and Bytes of Computer Networking - Coursera",
       certiLink: "https://drive.google.com/file/d/1bvjMgQXkv3AYUHaG0rOBl4hozrKkIU0e/view?usp=sharing",
     },
   ];
@@ -22,14 +22,15 @@ const Certificates = () => {
               <h2>Certificates</h2>
               <br />
               <Container>
+                
                 <Row>
                   <Col>
                     <p>{certi[0].title}</p>
-                    <a href={certi[0].certiLink}><Button variant="success">Link</Button></a>
+                    <a href={certi[0].certiLink}><Button variant="success">View</Button></a>
                   </Col>
                   <Col>
                     <p>{certi[1].title}</p>
-                    <a href={certi[1].certiLink}><Button variant="success">Link</Button></a>
+                    <a href={certi[1].certiLink}><Button variant="success">View</Button></a>
                   </Col>
                 </Row>
               </Container>

@@ -10,7 +10,8 @@ import cpp from '../assets/img/c++.svg';
 import react from '../assets/img/react.svg';
 import aws from '../assets/img/aws.svg';
 import node from '../assets/img/nodejs.svg';
-import colorSharp from '../assets/img/color-sharp.png';
+// import colorSharp from '../assets/img/color-sharp.png';
+import colorSharp from '../assets/img/gradient.png';
 
 const Skills = () => {
   const responsive = {
@@ -28,7 +29,7 @@ const Skills = () => {
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 2,
+      items: 1,
     },
   };
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
-import vp from "../assets/img/vp.svg";
+import vp from "../assets/img/VP-logo.png";
 import navIcon1 from "../assets/img/nav-icon1.svg";
 import github from "../assets/img/github-mark-white.svg";
 import navIcon3 from "../assets/img/nav-icon3.svg";
@@ -10,8 +10,10 @@ import { BrowserRouter as Router } from "react-router-dom";
 export const NavBar = () => {
   const [activeLink, setActiveLink] = useState("home");
   const [scrolled, setScrolled] = useState(false);
+  const [isShrink, setIsShrink] = useState(false);
 
   useEffect(() => {
+
     const onScroll = () => {
       if (window.scrollY > 50) {
         setScrolled(true);
@@ -19,6 +21,7 @@ export const NavBar = () => {
         setScrolled(false);
       }
     };
+    
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -27,12 +30,24 @@ export const NavBar = () => {
     setActiveLink(value);
   };
 
+  useEffect(() => { 
+    const handleScroll = () => {
+      if(window.scrollY > 100) {
+        setIsShrink(true);
+      } else {
+        setIsShrink(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  })
   return (
     <Router>
-      <Navbar expand="lg" className={scrolled ? "scrolled" : ""}>
+      <Navbar expand="lg" className={`${scrolled ? "scrolled" : ""} ${isShrink ? "navbarShrink" : ""}`}>
         <Container>
           <Navbar.Brand href="#home">
-            <img src={vp} alt="Logo" />
+            <img src={vp} alt="Logo"/>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav">
             <span className="navbar-toggler-icon"></span>

@@ -65,7 +65,7 @@ const Banner = () => {
                 >
                   <span className="tagline">Welcome to my Portfolio</span>
                   <h1>
-                    {`Hi I'm Vaishnavi `}
+                    {`Hi I'm Vaishnavi Panchal,`} <br/>
                     <span className="wrap">{text}</span>
                   </h1>
                   <p>

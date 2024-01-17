@@ -12,18 +12,21 @@ const Projects = () => {
     {
       title: "Kisaan Welfare",
       description: "Farming Community",
+      overview: "Kisaan Welfare is developed by using a Machine Learning model that can accurately predict crop yield based on environmental and soil conditions. The model is trained using a dataset containing historical crop yield data along with corresponding environmental and soil data.",
       imgUrl: projImg1,
       githubLink: "https://github.com/Vaishnaviii25/Kisaan-Welfare",
     },
     {
       title: "TourUp",
       description: "Tourism",
+      overview: "TourUp is a front-end website project aimed at providing users with an interactive and visually appealing platform for exploring various tourist destinations. This repository contains the source code and assets for the TourUp project, including HTML, CSS, JavaScript, and media files.",
       imgUrl: projImg2,
       githubLink: "https://github.com/Vaishnaviii25/TourUp",
     },
     {
       title: "Hospital Feedback",
       description: "Hospital feedback analysis",
+      overview: "This project provides a guide to creating a sentiment analysis model for hospital reviews using Python. It centers around deciphering individual sentiments about various hospital aspects. Specifically, it delves into analyzing sentiments related to Pfizer hospital services using a Kaggle dataset.",
       imgUrl: projImg3,
       githubLink: "https://github.com/Vaishnaviii25/hospital-feedback-analysis",
     },
@@ -73,8 +76,9 @@ const Projects = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <h3>{projects[0].title}</h3>
-                        <Button variant="light">View on GitHub</Button>
+                        <h3>{projects[0].overview}</h3>
+                        {/* <Button variant="light">View on GitHub</Button> */}
+                        <p>Click on the description to view on github !</p>
                       </a>
                     </p>
                     {/* {projects.map((project, index) => {
@@ -84,19 +88,18 @@ const Projects = () => {
                 </Tab.Pane>
                 <Tab.Pane eventKey="second">
                   <Row>
-                    <ProjectCard {...projects[1]} />
-                    <p>
-                      <a
-                        className="desc"
-                        href={projects[1].githubLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <h3>{projects[1].title}</h3>
-                        <Button variant="light">View on GitHub</Button>
-                      </a>
-                    </p>
-
+                      <ProjectCard {...projects[1]} />
+                      <p>
+                        <a
+                          className="desc"
+                          href={projects[1].githubLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                        <h3>{projects[1].overview}</h3>
+                          <Button variant="light">View on GitHub</Button>
+                        </a>
+                      </p>
                     {/* {projects.map((project, index) => {
                       return <ProjectCard key={index} {...projects[1]} />;
                     })} */}
@@ -104,7 +107,7 @@ const Projects = () => {
                 </Tab.Pane>
                 <Tab.Pane eventKey="third">
                   <Row>
-                    <ProjectCard {...projects[2]} />
+                    <ProjectCard {...projects[2]} className="pc"/>
                     <p>
                       <a
                         className="desc"
@@ -112,7 +115,7 @@ const Projects = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <h3>{projects[2].title}</h3>
+                        <h3>{projects[2].overview}</h3>
                         <Button variant="light">View on GitHub</Button>
                       </a>
                     </p>

@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import emailjs from '@emailjs/browser';
 // import contactImg from "../assets/img/contact-img.svg";
 import contactImg from "../assets/img/git.svg";
-import Resume from "./Resume";
 
 const Contact = () => {
+  const form = useRef();
   const formInitialDetails = {
-    firstName: "",
-    lastName: "",
+    // firstName: "",
+    // lastName: "",
+    name: "",
     email: "",
     phone: "",
     message: "",
@@ -21,24 +23,21 @@ const Contact = () => {
     setFormDetails({ ...formDetails, [category]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
     setButtonText("Sending...");
-    let response = await fetch("http://localhost:5000", {
-        method: "POST",
-        headers: {
-            "Content-Type": "Application/json;charset=utf-8",
-        },
-        body: JSON.stringify(formDetails),
-    });
-    setButtonText("Send");
-    let result = response.json();
-    setFormDetails(formInitialDetails);
-    if(result.code === 200) {
+
+    emailjs.sendForm('service_g17gj5e', 'template_04n853l', form.current, 'ZETsPBcfp24gefk7a')
+    .then((result) => {
+        console.log(result.text);
+        setButtonText("Send");
+        setFormDetails(formInitialDetails);
         setStatus({success: true, message: "Message sent successfully"});
-    } else {
+    }, (error) => {
+        console.log(error.text);
+        setButtonText("Send");
         setStatus({success: false, message: "Something went wrong, please try again later."});
-    }
+    });
   };
 
   return (
@@ -50,45 +49,41 @@ const Contact = () => {
           </Col>
           <Col md={6}>
             <h2>Get In Touch</h2>
-            <form onSubmit={handleSubmit}>
+            <form ref={form} onSubmit={sendEmail}>
               <Row>
-                <Col sm={6} className="px-1">
+                <Col sm={12} className="px-2 py-2">
                   <input
                     type="text"
-                    value={formDetails.firstName}
-                    placeholder="First Name"
-                    onChange={(e) => onFormUpdate("firstName", e.target.value)}
+                    name="name"
+                    value={formDetails.name}
+                    placeholder="What's your name?"
+                    onChange={(e) => onFormUpdate("name", e.target.value)}
                   />
                 </Col>
-                <Col sm={6} className="px-1">
-                  <input
-                    type="text"
-                    value={formDetails.lastName}
-                    placeholder="Last Name"
-                    onChange={(e) => onFormUpdate("lastName", e.target.value)}
-                  />
-                </Col>
-                <Col sm={6} className="px-1">
+                <Col sm={7} className="px-2 py-2">
                   <input
                     type="email"
+                    name="email"
                     value={formDetails.email}
-                    placeholder="Email Address"
+                    placeholder="What's your email?"
                     onChange={(e) => onFormUpdate("email", e.target.value)}
                   />
                 </Col>
-                <Col sm={6} className="px-1">
+                <Col sm={5} className="px-2 py-2">
                   <input
                     type="tel"
-                    value={formDetails.phoneNumber}
-                    placeholder="Phone Number"
+                    name="phone"
+                    value={formDetails.phone}
+                    placeholder="Your Phone Number"
                     onChange={(e) => onFormUpdate("phone", e.target.value)}
                   />
                 </Col>
                 <Col>
                   <textarea
                     rows="6"
+                    name="message"
                     value={formDetails.message}
-                    placeholder="Message"
+                    placeholder="What do you want to say?"
                     onChange={(e) => onFormUpdate("message", e.target.value)}
                   />
                   <button type="submit">
@@ -101,7 +96,7 @@ const Contact = () => {
                       className={
                         status.success === false ? "danger" : "success"
                       }
-                    ></p>
+                    >{status.message}</p>
                   </Col>
                 )}
               </Row>
