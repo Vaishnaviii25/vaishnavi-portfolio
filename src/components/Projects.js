@@ -95,9 +95,10 @@ const Projects = () => {
                           href={projects[1].githubLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                        >
+                          >
                         <h3>{projects[1].overview}</h3>
-                          <Button variant="light">View on GitHub</Button>
+                          <p>Click on the description to view on github !</p>
+                          {/* <Button variant="light">View on GitHub</Button> */}
                         </a>
                       </p>
                     {/* {projects.map((project, index) => {
@@ -116,7 +117,8 @@ const Projects = () => {
                         rel="noopener noreferrer"
                       >
                         <h3>{projects[2].overview}</h3>
-                        <Button variant="light">View on GitHub</Button>
+                        <p>Click on the description to view on github !</p>
+                        {/* <Button variant="light">View on GitHub</Button> */}
                       </a>
                     </p>
                     {/* {projects.map((project, index) => {
