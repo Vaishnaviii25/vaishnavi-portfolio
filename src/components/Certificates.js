@@ -5,7 +5,7 @@ import colorSharp from "../assets/img/gradient.png";
 const Certificates = () => {
   const certi = [
     {
-      title: "AWS Certified Cloud Practioner Fondationals",
+      title: "AWS Certified Cloud Practitioner",
       certiLink: "https://drive.google.com/file/d/15-b4iQVIXaO7M9yuIMJRDm9DGp8rkExC/view?usp=sharing",
     },
     {
