@@ -1,7 +1,7 @@
 import { Container, Row, Col, Nav, Tab, Button } from "react-bootstrap";
-import projImg1 from "../assets/img/kw.png";
-import projImg2 from "../assets/img/tu.png";
-import projImg3 from "../assets/img/hfa.png";
+import projImg1 from "../assets/img/p-ai.png"
+import projImg2 from "../assets/img/kw.png";
+import projImg3 from "../assets/img/hb.png";
 import ProjectCard from "./ProjectCard";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import TrackVisibility from "react-on-screen";
@@ -10,25 +10,25 @@ import Resume from "./Resume";
 const Projects = () => {
   const projects = [
     {
+      title: "Promptify",
+      description: "Discover & Share AI Powered Prompts",
+      overview: "PromptifyAI allows users to seamlessly search for creative prompts using tags or usernames. Whether you're looking for inspiration for web development, AI research, or any other creative endeavor, PromptifyAI offers a community-driven platform to boost your creativity.",
+      imgUrl: projImg1,
+      githubLink: "https://github.com/Vaishnaviii25/promptify",
+    },
+    {
       title: "Kisaan Welfare",
       description: "Farming Community",
       overview: "Kisaan Welfare is developed by using a Machine Learning model that can accurately predict crop yield based on environmental and soil conditions. The model is trained using a dataset containing historical crop yield data along with corresponding environmental and soil data.",
-      imgUrl: projImg1,
+      imgUrl: projImg2,
       githubLink: "https://github.com/Vaishnaviii25/Kisaan-Welfare",
     },
     {
-      title: "TourUp",
-      description: "Tourism",
-      overview: "TourUp is a front-end website project aimed at providing users with an interactive and visually appealing platform for exploring various tourist destinations. This repository contains the source code and assets for the TourUp project, including HTML, CSS, JavaScript, and media files.",
-      imgUrl: projImg2,
-      githubLink: "https://github.com/Vaishnaviii25/TourUp",
-    },
-    {
-      title: "Hospital Feedback",
-      description: "Hospital feedback analysis",
-      overview: "This project provides a guide to creating a sentiment analysis model for hospital reviews using Python. It centers around deciphering individual sentiments about various hospital aspects. Specifically, it delves into analyzing sentiments related to Pfizer hospital services using a Kaggle dataset.",
+      title: "HooBank",
+      description: "Modern Banking Web Application",
+      overview: "A modern bank application developed using React.js and Tailwind CSS, a utility-first CSS framework. The application is crafted to deliver an intuitive and visually appealing user interface, enhancing the banking experience for users.",
       imgUrl: projImg3,
-      githubLink: "https://github.com/Vaishnaviii25/hospital-feedback-analysis",
+      githubLink: "https://github.com/Vaishnaviii25/Modern-Bank-App",
     },
   ];
 
